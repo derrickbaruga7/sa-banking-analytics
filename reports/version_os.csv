@@ -1,0 +1,5 @@
+app_version,device_os,attempts,submitted,succeeded,failed,affected_customers,support_cases,supported_attempts,completion_pct,failure_pct,support_contact_pct
+2.0,Android,1453,1294,1012,282,233,135,117,69.65,21.79,8.05
+1.9,iOS,278,246,233,13,13,10,8,83.81,5.28,2.88
+1.9,Android,570,512,488,24,24,10,9,85.61,4.69,1.58
+2.0,iOS,747,669,645,24,24,6,6,86.35,3.59,0.8

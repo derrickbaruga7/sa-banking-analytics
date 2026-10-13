@@ -1,0 +1,5 @@
+disposition,attempts
+accepted,6000
+invalid_amount,5
+invalid_start_time,5
+unknown_customer,10

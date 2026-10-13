@@ -1,0 +1,3 @@
+period,attempts,submitted,succeeded,failed,unresolved,affected_customers,support_cases,supported_attempts,completion_pct,submission_pct,failure_pct
+Before release,2932,2631,2511,120,0,113,53,45,85.64,89.73,4.56
+After release,3048,2721,2378,343,0,274,161,140,78.02,89.27,12.61

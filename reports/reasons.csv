@@ -1,0 +1,9 @@
+app_version,device_os,failure_reason,failures,submitted,submitted_reason_pct
+2.0,Android,timeout,187,1294,14.45
+2.0,Android,insufficient_funds,95,1294,7.34
+2.0,iOS,timeout,19,669,2.84
+1.9,Android,timeout,17,512,3.32
+1.9,iOS,timeout,10,246,4.07
+1.9,Android,insufficient_funds,7,512,1.37
+2.0,iOS,insufficient_funds,5,669,0.75
+1.9,iOS,insufficient_funds,3,246,1.22

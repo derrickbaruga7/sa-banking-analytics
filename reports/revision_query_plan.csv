@@ -1,0 +1,2 @@
+id,parent,notused,detail
+5,0,62,SEARCH raw_attempts USING INDEX ix_raw_revision (attempt_id=?)

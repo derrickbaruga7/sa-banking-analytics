@@ -1,0 +1,13 @@
+app_version,device_os,segment,attempts,submitted,failed,failure_pct
+1.9,Android,Everyday,186,157,6,3.82
+1.9,Android,Small business,205,192,11,5.73
+1.9,Android,Student,179,163,7,4.29
+1.9,iOS,Everyday,102,91,4,4.4
+1.9,iOS,Small business,92,84,7,8.33
+1.9,iOS,Student,84,71,2,2.82
+2.0,Android,Everyday,487,427,98,22.95
+2.0,Android,Small business,485,430,90,20.93
+2.0,Android,Student,481,437,94,21.51
+2.0,iOS,Everyday,235,214,8,3.74
+2.0,iOS,Small business,281,244,9,3.69
+2.0,iOS,Student,231,211,7,3.32

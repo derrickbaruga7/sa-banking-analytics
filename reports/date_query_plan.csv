@@ -1,0 +1,14 @@
+id,parent,notused,detail
+2,0,0,CO-ROUTINE ranked
+5,2,0,CO-ROUTINE (subquery-7)
+9,5,224,SCAN raw_attempts USING INDEX ix_raw_revision
+34,2,216,SCAN (subquery-7)
+97,0,0,MATERIALIZE support
+104,97,216,SCAN support_cases
+106,97,0,USE TEMP B-TREE FOR GROUP BY
+147,0,216,SCAN ranked
+158,0,44,SEARCH c USING COVERING INDEX sqlite_autoindex_customers_1 (customer_id=?) LEFT-JOIN
+264,0,44,SEARCH c USING COVERING INDEX sqlite_autoindex_customers_1 (customer_id=?)
+269,0,44,SEARCH b USING COVERING INDEX sqlite_autoindex_backend_payments_1 (attempt_id=?) LEFT-JOIN
+280,0,0,BLOOM FILTER ON s (attempt_id=?)
+289,0,47,SEARCH s USING AUTOMATIC COVERING INDEX (attempt_id=?) LEFT-JOIN

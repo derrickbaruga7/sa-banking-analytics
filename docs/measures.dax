@@ -1,0 +1,64 @@
+// Add each named expression separately as a Power BI measure.
+// Rate measures retain date/cohort filters but ignore outcome/reason filters.
+
+Raw Attempts = COUNTROWS(fact_payment_attempt)
+
+Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[outcome], fact_payment_attempt[failure_reason])
+)
+
+Submitted Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[outcome], fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[submitted_at] <> BLANK()
+)
+
+Successful Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[outcome] = "succeeded"
+)
+
+Failed Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[outcome] = "failed"
+)
+
+Unresolved Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[outcome] = "unresolved"
+)
+
+Submission Rate = DIVIDE([Submitted Attempts], [Attempts])
+Completion Rate = DIVIDE([Successful Attempts], [Attempts])
+Submitted Failure Rate = DIVIDE([Failed Attempts], [Submitted Attempts])
+Unresolved Submitted Rate = DIVIDE([Unresolved Attempts], [Submitted Attempts])
+
+Affected Customers =
+CALCULATE(
+    DISTINCTCOUNT(fact_payment_attempt[customer_id]),
+    REMOVEFILTERS(fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[outcome] = "failed"
+)
+
+Support Cases = COUNTROWS(support_cases)
+
+Supported Attempts =
+CALCULATE(
+    [Raw Attempts],
+    REMOVEFILTERS(fact_payment_attempt[outcome], fact_payment_attempt[failure_reason]),
+    fact_payment_attempt[support_case_count] > 0
+)
+
+Support Contact Rate = DIVIDE([Supported Attempts], [Attempts])
+
+Failure Count by Reason =
+CALCULATE([Raw Attempts], fact_payment_attempt[outcome] = "failed")
