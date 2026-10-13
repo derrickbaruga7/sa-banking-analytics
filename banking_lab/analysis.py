@@ -22,7 +22,7 @@ def analyze(database, destination):
             rows = [dict(row) for row in cursor]
             data[name] = rows
             with (destination / (name + '.csv')).open('w', newline='', encoding='utf-8') as handle:
-                writer = csv.DictWriter(handle, fieldnames=columns)
+                writer = csv.DictWriter(handle, fieldnames=columns, lineterminator='\n')
                 writer.writeheader()
                 writer.writerows(rows)
     finally:

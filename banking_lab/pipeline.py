@@ -164,7 +164,7 @@ def export_snapshot(connection, destination):
         cursor = connection.execute(query)
         path = destination / (name + '.csv')
         with path.open('w', newline='', encoding='utf-8') as handle:
-            writer = csv.writer(handle)
+            writer = csv.writer(handle, lineterminator='\n')
             writer.writerow([column[0] for column in cursor.description])
             writer.writerows(cursor)
         files[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
